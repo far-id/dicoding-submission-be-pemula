@@ -120,6 +120,7 @@ const updateBookById = (request, h) => {
     reading,
   } = request.payload;
   const updatedAt = new Date().toISOString();
+  const finished = pageCount === readPage;
 
   if (name === undefined || readPage > pageCount) {
     const message = name === undefined ? 'Gagal memperbarui buku. Mohon isi nama buku'
@@ -142,6 +143,7 @@ const updateBookById = (request, h) => {
       publisher,
       pageCount,
       readPage,
+      finished,
       reading,
       updatedAt,
     };
